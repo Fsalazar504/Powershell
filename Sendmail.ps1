@@ -3,7 +3,6 @@ $PrinterStatus = Get-Printer | Where-Object PrinterStatus -like '*offline*' | Se
 (Get-Printer | Select-Object -Property Name, Shared, PrinterStatus) | Where-Object {$_.PrinterStatus -notlike "*Normal*"} 
 (Get-Printer | Select-Object -Property Name, Shared, PrinterStatus) | Where-Object {$_.PrinterStatus -like "*TonerLow*"} 
 
-
 #Create and convert txt to Html file
 $PrinterStatus | ConvertTo-Html | Out-File -FilePath C:\SomePath\Printers.txt #For "SomePath" enter a desired destination
 
